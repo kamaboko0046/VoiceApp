@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/outputFragment">
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="com.kamaboko.voiceapp.input.InputFragment"
+        android:label="fragment_input"
+        tools:layout="@layout/fragment_input" >
+        <action
+            android:id="@+id/action_inputFragment_to_outputFragment"
+            app:destination="@id/outputFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/outputFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageFragment"
+        android:name="com.kamaboko.voiceapp.manege.ManageFragment"
+        android:label="ManageFragment"
+        tools:layout="@layout/fragment_manege">
+        <action
+            android:id="@+id/action_manageFragment_to_outputFragment"
+            app:destination="@id/outputFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/outputFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/outputFragment"
+        android:name="com.kamaboko.voiceapp.output.OutputFragment"
+        android:label="OutputFragment"
+        tools:layout="@layout/fragment_output">
+        <action
+            android:id="@+id/action_outputFragment_to_inputFragment"
+            app:destination="@id/inputFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_outputFragment_to_manageFragment"
+            app:destination="@id/manageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_in_left" />
+    </fragment>
+</navigation>
